@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Arduino UNO",
+    "price": 349,
+    "image": "images/arduino.jpg",
+    "page": "arduino.html"
+  },
+  {
+    "id": 2,
+    "name": "ESP32",
+    "price": 399,
+    "image": "images/esp32.jpg",
+    "page": "esp32.html"
+  },
+  {
+    "id": 3,
+    "name": "2 Channel Relay Module",
+    "price": 89,
+    "image": "images/2channelrelay.jpg",
+    "page": "2channelrelay.html"
+  },
+  {
+    "id": 4,
+    "name": "TP4056 Charging Module",
+    "price": 39,
+    "image": "images/tp4056.jpg",
+    "page": "tp4056.html"
+  },
+    {
+    "id": 2,
+    "name": "HC-05 blueTooth Module",
+    "price": 199,
+    "image": "images/hco5.jpg",
+    "page": "hco5.html"
+  },
+  {
+    "id": 5,
+    "name": "HC-SR04 Ultrasonic Sensor",
+    "price": 79,
+    "image": "images/hcsr04.jpg",
+    "page": "hcsr04.html"
+  }
+]

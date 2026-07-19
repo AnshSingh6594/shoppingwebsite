@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+</head>
+<body>
+
+<h2>Login</h2>
+
+<input type="email" id="email" placeholder="Email"><br><br>
+
+<input type="password" id="password" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
+
+<p>New User?
+<a href="signup.html">Create Account</a>
+</p>
+
+<script>
+function login() {
+
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    fetch("http://localhost:5000/api/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        if (data.message === "Login Successful") {
+
+            localStorage.setItem("loggedIn", "true");
+            localStorage.setItem("loggedUser", data.user.name);
+
+            alert("Login Successful");
+            window.location = "index.html";
+
+        } else {
+            alert(data.message);
+        }
+
+    })
+    .catch(err => {
+        console.log(err);
+        alert("Login Failed");
+    });
+
+}
+</script>
+
+</body>
+</html>

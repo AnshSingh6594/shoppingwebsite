@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="cart-container"
+<h1 align="center">🛒 Your Shopping Cart</h1>
+
+<div id="cart-items" style="text-align:center; margin-top:30px;">
+    <p>Your cart is empty.</p>
+</div>
+
+<div style="text-align:center; margin-top:30px;">
+    <button onclick="window.location.href='checkout.html'">
+     <h3 id="total-price"> Total: ₹0</h3>
+        Proceed to Checkout
+    </button>
+</div>
+
+<br>
+
+<div style="text-align:center;">
+    <a href="index.html">⬅ Continue Shopping</a>
+</div>
+<script>
+
+
+let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+let cartDiv = document.getElementById("cart-items");
+
+if (cartItems.length > 0) {
+    let html = "";
+let total = 0;
+    cartItems.forEach(function(item) {
+     total += Number(item.price)*Number(item.qty);
+       html += `
+<p>
+   ${item.name}
+<button onclick="decreaseQty('${item.name}')">-</button>
+
+${item.qty}
+
+<button onclick="increaseQty('${item.name}')">+</button>
+
+<button onclick="removeItem('${item.name}')">Remove</button>
+    
+</p>`;
+    });
+
+    cartDiv.innerHTML = html;
+    document.getElementById("total-price").innerText = "Total: ₹" + total;
+} else {
+    cartDiv.innerHTML = "<p>Your cart is empty.</p>";
+}
+function removeItem(name) {
+    cartItems = cartItems.filter(product => product.name !== name);
+
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+    location.reload();
+}
+function increaseQty(name) {
+    cartItems.forEach(item => {
+        if (item.name === name) {
+            item.qty++;
+        }
+    });
+
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    location.reload();
+}
+
+function decreaseQty(name) {
+    cartItems.forEach(item => {
+        if (item.name === name && item.qty > 1) {
+            item.qty--;
+        }
+    });
+
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    location.reload();
+}
+</script>
+</body>
+</html>

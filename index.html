@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansh Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+
+    <div class="logo">
+        🛒 <span>Ansh Store</span>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="SearchBox" 
+        placeholder="Search Products...">
+        <button>🔍</button>
+    </div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="cart.html">🛒Cart 
+            <a href="wishlist.html">❤️ Wishlist</a>
+            <div id="myOrdersBtn" style="display:none;">
+    <a href="myorders.html" class="btn">📦 My Orders</a>
+</div>
+      <span id="userArea">
+    <a href="login.html">👤 Login / My Account</a>
+    </div>
+</span>
+    </div>
+
+</header>
+
+<section class="hero">
+
+    <h1>⚡ Welcome to Ansh Store ⚡</h1>
+
+    <p>Best Electronics Components at Affordable Prices</p>
+
+    <div class="hero-boxes">
+
+        <div>🚚 Fast Delivery</div>
+
+        <div>💯 Original Products</div>
+
+        <div>🔥 Best Deals</div>
+
+    </div>
+    
+<div class="offer-banner">
+
+    <div class="offer-card">
+        <h3>🔥 Today's Offer</h3>
+        <p>Up to 30% OFF on Arduino Boards</p>
+    </div>
+
+    <div class="offer-card">
+        <h3>🚚 Free Delivery</h3>
+        <p>Orders Above ₹499</p>
+    </div>
+
+    <div class="offer-card">
+        <h3>⚡ New Arrival</h3>
+        <p>ESP32, Sensors & Modules</p>
+    </div>
+
+</div>
+<div class="delivery-box">
+    <h3>🚚 Delivery Charges</h3>
+
+    <div class="delivery-free">
+        🟢 <strong>FREE Delivery</strong> on Orders ₹499 & Above
+    </div>
+
+    <div class="delivery-paid">
+        🔴 <strong>₹49 Delivery Charge</strong> on Orders Below ₹499
+    </div>
+    </div>
+    <div class="scrolling-offer">
+
+    <p>
+        🔥 Welcome to Ansh Electronics | 🚚 FREE Delivery on Orders ₹499+ |
+        💥 Best Deals Every Week | 🛒 Genuine Electronics Products |
+        ⚡ Fast Shipping Across India | 🎁 New Products Added Regularly
+    </p>
+
+
+</div>
+</section>
+<nav>
+<div class="menu-icon" onclick="toggleMenu()">
+    ☰ MENU
+</div>
+   <ul id="menu" class="nav-links">
+    ...
+    <li><a href="index.html">🏠 Home</a></li>
+
+    <li><a href="#">🛍 Shop</a></li>
+
+    <li><a href="#">🖥 PCB Design</a></li>
+
+    <li><a href="#">🎨 3D Design</a></li>
+
+    <li><a href="#">🌐 Web Design</a></li>
+
+    <li><a href="#">⚡ Electronics Projects</a></li>
+
+    <li><a href="#">🏠 Home Services</a></li>
+
+    <li><a href="#">📚 Resources</a></li>
+
+    <li><a href="#">🎥 Video Tutorials</a></li>
+
+    <li><a href="#">📢 Notice</a></li>
+
+    <li><a href="#">🔥 Deals & Offers</a></li>
+
+    <li><a href="#">⭐ New Arrivals</a></li>
+
+    <li><a href="wishlist.html">❤️ Wishlist</a></li>
+
+    <li><a href="cart.html">🛒 Cart</a></li>
+
+    <li><a href="order.html">📦 My Orders</a></li>
+
+    <li id="userArea"><a href="login.html">👤 My Account</a></li>
+
+    <li><a href="#">📞 Contact Us</a></li>
+
+    <li><a href="#">ℹ️ About Us</a></li>
+</ul>
+</nav>
+<header>
+    <h1>Ansh Electronics</h1>
+    <p>Electronics Parts & Modules</p>
+</header>
+<section class="categories">
+
+<h2>🛍 Shop Categories</h2>
+
+<div class="category-grid">
+
+<a href="microcontrollers.html" class="category-card">🖥️ Microcontrollers & Development Boards</a>
+
+<a href="sensors.html" class="category-card">📡 Sensors</a>
+
+<a href="cables.html" class="category-card">🔌 Cables & Connectors</a>
+
+<a href="motors.html" class="category-card">⚙️ Motors & Motor Drivers</a>
+
+<a href="ics.html" class="category-card">💾 ICs</a>
+
+<a href="display.html" class="category-card">📺 Display Modules</a>
+
+<a href="power.html" class="category-card">⚡ Power Modules</a>
+
+<a href="battery.html" class="category-card">🔋 Batteries</a>
+
+<a href="rf.html" class="category-card">📶 RF & Wireless Modules</a>
+
+<a href="tools.html" class="category-card">🛠️ Tools & Soldering</a>
+
+<a href="diy.html" class="category-card">📦 DIY Kits</a>
+
+<a href="pcb.html" class="category-card">🖨️ PCB & Prototyping</a>
+
+</div>
+
+</section>
+<section class="slider">
+
+    <div class="slides fade">
+        <img src="images/banner1.jpg" alt="Banner 1">
+    </div>
+
+    <div class="slides fade">
+        <img src="images/banner2.jpg" alt="Banner 2">
+    </div>
+
+    <div class="slides fade">
+        <img src="images/banner3.jpg" alt="Banner 3">
+    </div>
+
+    <div class="slides fade">
+        <img src="images/banner4.jpg" alt="Banner 4">
+    </div>
+
+</section>
+<div class="products" id="products"></div>
+</div>
+<script src="script.js">
+</script>
+<div class="bottom-nav">
+
+    <a href="index.html">
+        <span>🏠</span>
+        <small>Home</small>
+    </a>
+
+    <a href="categories">
+        <span>📂</span>
+        <small>Categories</small>
+    </a>
+
+    <a href="wishlist.html">
+        <span>❤️</span>
+        <small>Wishlist</small>
+    </a>
+
+    <a href="cart.html">
+        <span>🛒</span>
+        <small>Cart</small>
+    </a>
+<span id="userArea">
+    <a href="login.html">
+        <span>👤</span>
+        <small>Account</small>
+    </a>
+</span>
+</div>
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+}
+</script>
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h3>🏪 Ansh Electronics</h3>
+            <p>Your Trusted Electronics Store.</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>📞 Contact Us</h3>
+
+            <p>📧 singhansh9479@gmail.com</p>
+            <p>📱 +91 89350 20462 & 74085 56939</p>
+            <p>📍 Kadipur, Sultanpur, Utter Pradesh pin:228145</p>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>🌐 Follow Us</h3>
+
+            <a href="#">💬 WhatsApp</a>
+            <a href="#">📷 Instagram</a>
+            <a href="#">▶️ YouTube</a>
+            <a href="#">📘 Facebook</a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 Ansh Electronics | All Rights Reserved.
+
+    </div>
+
+</footer>
+<script>
+if (localStorage.getItem("loggedIn") === "true") {
+    document.getElementById("myOrdersBtn").style.display = "inline-block";
+}
+</script>
+</body>
+</html>

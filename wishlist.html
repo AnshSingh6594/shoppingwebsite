@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wishlist</title>
+</head>
+<body>
+
+<h1>❤️ My Wishlist</h1>
+
+<ul id="wishlist"></ul>
+
+<script>
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+let list = document.getElementById("wishlist");
+
+wishlist.forEach(function(item, index){
+
+    let li = document.createElement("li");
+    li.innerHTML = item + ' <button onclick="removeItem(' + index + ')">❌ Remove</button>';
+
+    list.appendChild(li);
+});
+function removeItem(index) {
+
+    wishlist.splice(index, 1);
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+    location.reload();
+
+}
+</script>
+
+</body>
+</html>

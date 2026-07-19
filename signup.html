@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Signup</title>
+</head>
+<body>
+
+<h2>Create Account</h2>
+
+<input type="text" id="name" placeholder="Name"><br><br>
+
+<input type="email" id="email" placeholder="Email"><br><br>
+
+<input type="password" id="password" placeholder="Password"><br><br>
+
+<button onclick="signup()">Sign Up</button>
+
+<p>Already have an account?
+<a href="login.html">Login</a>
+</p>
+
+<script>
+function signup(){
+
+let user={
+name:document.getElementById("name").value,
+email:document.getElementById("email").value,
+password:document.getElementById("password").value
+};
+
+fetch("http://localhost:5000/api/register", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(user)
+})
+.then(res => res.json())
+.then(data => {
+    alert(data.message);
+
+    if (data.message === "Registration Successful") {
+        localStorage.setItem("currentUser", JSON.stringify(user));
+        window.location = "login.html";
+    }
+})
+.catch(err => {
+    alert("Signup Failed");
+    console.log(err);
+});
+
+}
+</script>
+
+</body>
+</html>

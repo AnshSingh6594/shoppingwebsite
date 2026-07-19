@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Checkout</h1>
+    <hr>
+<h2>Your Order</h2>
+<div id="order-summary"></div>
+ <form onsubmit="placeOrder(event)">
+<div class="price-box">
+    <p><strong>Subtotal:</strong> <span id="subtotal"></span></p>
+    <p><strong>Delivery Charge:</strong> <span id="delivery-charge"></span></p>
+    <hr>
+    <p><strong>Grand Total:</strong> <span id="final-total"></span></p>
+</div>
+<hr><br>
+        <label>Full Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Mobile Number:</label><br>
+        <input type="tel" name="mobile" required><br><br>
+         <label>PIN Code::</label><br>
+        <input type="tel" name="pincode" required><br><br>
+
+        <label>Delivery Address:</label><br>
+        <textarea name="address" rows="4" cols="30" required></textarea><br><br>
+
+        <label>Payment Method:</label><br>
+
+        <input type="radio" name="payment" value="creditdebitcard" checked>
+        Credit/Debit Card<br>
+        
+        <input type="radio" name="payment" value="COD" checked>
+        Cash on Delivery<br>
+
+        <input type="radio" name="payment" value="UPI">
+        UPI Payment<br><br>
+
+        <button type="submit">Place Order</button>
+
+    </form>
+
+    <br>
+    <div id="order-summary"></div>
+
+
+<script>
+fetch("http://localhost:5000/api/products")
+.then(res => res.json())
+.then(products => {
+
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    let summary = "";
+    let total = 0;
+
+    cartItems.forEach(item => {
+
+        let product = products.find(p => p.name === item.name);
+
+        let price = product ? product.price * item.qty : 0;
+
+        total += price;
+
+        summary += `
+        <p>${item.name} × ${item.qty} = ₹${price}</p>
+        `;
+    });
+
+    let subtotal = total;
+    let deliveryCharge = subtotal >= 499 ? 0 : 49;
+    let finalTotal = subtotal + deliveryCharge;
+
+    document.getElementById("order-summary").innerHTML = summary;
+    document.getElementById("subtotal").innerText = "₹" + subtotal;
+    document.getElementById("delivery-charge").innerText = "₹" + deliveryCharge;
+    document.getElementById("final-total").innerText = "₹" + finalTotal;
+
+});
+
+</script>
+<script>
+async function placeOrder(event) {
+
+    event.preventDefault();
+
+const form = event.target;
+
+let subtotal = Number(document.getElementById("subtotal").innerText.replace("₹", ""));
+let deliveryCharge = Number(document.getElementById("delivery-charge").innerText.replace("₹", ""));
+let finalTotal = subtotal + deliveryCharge;
+
+const order = {
+
+    name:
+    localStorage.getItem("loggedUser"),
+    customerName:form.name.value,
+        phone: form.mobile.value,
+        pincode: form.pincode.value,
+        address: form.address.value,
+        payment: form.payment.value,
+        total: finalTotal,
+        items: JSON.parse(localStorage.getItem("cartItems")) || [],
+        status: "Pending"
+    };
+
+    const response = await fetch("/api/orders", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(order)
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+        localStorage.removeItem("cartItems");
+        alert("Order Placed Successfully!");
+        window.location.href = "order.html";
+    }
+}
+</script>
+    <a href="index.html">← Back to Store</a>
+
+</body>
+</html>
