@@ -100,7 +100,7 @@ function showSlides(){
     setTimeout(showSlides,3000);
 
 }
-fetch("http://localhost:5000/api/products")
+fetch("product.json")
 .then(response => response.json())
 .then(products => {
 
