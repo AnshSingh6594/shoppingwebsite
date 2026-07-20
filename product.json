@@ -28,14 +28,14 @@
     "page": "tp4056.html"
   },
     {
-    "id": 2,
+    "id": 5,
     "name": "HC-05 blueTooth Module",
     "price": 199,
     "image": "images/hco5.jpg",
     "page": "hco5.html"
   },
   {
-    "id": 5,
+    "id": 6,
     "name": "HC-SR04 Ultrasonic Sensor",
     "price": 79,
     "image": "images/hcsr04.jpg",
