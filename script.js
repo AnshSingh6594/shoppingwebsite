@@ -110,7 +110,7 @@ fetch("https://shoppingwebsite-crh7.onrender.com/api/products")
 
         productsDiv.innerHTML += `
         <div class="product-card">
-            <img src="${product.image}" alt="${product.name}">
+            <img src="https://shoppingwebsite-crh7.onrender.com/${product.name}">
             <h2>${product.name}</h2>
             <p>₹${product.price}</p>
 
