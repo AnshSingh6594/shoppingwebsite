@@ -45,58 +45,7 @@ button:hover{
 </head>
 <body>
 
-<div class="container">
 
-<h2>Admin Panel</h2>
-
-<input type="text" id="name" placeholder="Product Name">
-
-<input type="number" id="price" placeholder="Price">
-
-<input type="file" id="image" accept="image/*">
-
-<input type="text" id="page" placeholder="Product Page">
-
-<button id="saveBtn" onclick="addProduct()">
-    Add Product
-</button>
-<hr>
-
-<h2>All Products</h2>
-
-<table border="1" width="100%" id="productTable">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-
-    <tbody>
-
-    </tbody>
-
-</table>
-</div>
-<h2>📦 Orders</h2>
-<div id="ordersList"></div>
-<table border="1" width="100%">
-    <thead>
-        <tr>
-            <th>Order ID</th>
-            <th>Name</th>
-            <th>Total</th>
-            <th>Status</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-
-    <tbody id="ordersTable"></tbody>
-</table>
-<script src="admin.js"></script>
 <form onsubmit="login(event)">
     <input type="text" id="username" placeholder="Username">
     <input type="password" id="password" placeholder="Password">
@@ -111,7 +60,8 @@ function login(e){
         document.getElementById("username").value==="AnshSingh" &&
         document.getElementById("password").value==="Ansh@6594"
     ){
-        window.location.href="admin-panel.html";
+        localStorage.setItem("adminLoggedIn", "true");
+window.location.href = "admin-panel.html";
     }else{
         alert("Wrong Username or Password");
     }
