@@ -10,7 +10,7 @@ const imageFile = document.getElementById("image").files[0];
 const formData = new FormData();
 formData.append("image", imageFile);
 
-const uploadRes = await fetch("http://localhost:5000/upload", {
+const uploadRes = await fetch("https://shoppingwebsite-crh7.onrender.com/upload", {
     method: "POST",
     body: formData
 });
@@ -28,7 +28,7 @@ const image = "images/"+ uploadData.image;
     let response;
 
 if (editId) {
-    response = await fetch(`http://localhost:5000/api/products/${editId}`, {
+    response = await fetch(`https://shoppingwebsite-crh7.onrender.com/api/products/${editId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -38,7 +38,7 @@ if (editId) {
 
     editId = null;
 } else {
-    response = await fetch("http://localhost:5000/api/products", {
+    response = await fetch("https://shoppingwebsite-crh7.onrender.com/api/products", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -85,7 +85,7 @@ async function deleteProduct(id) {
 
     if (!confirm("Delete this product?")) return;
 
-    const response = await fetch(`http://localhost:5000/api/products/${id}`, {
+    const response = await fetch(`https://shoppingwebsite-crh7.onrender.com/api/products/${id}`, {
         method: "DELETE"
     });
 
@@ -98,7 +98,7 @@ async function deleteProduct(id) {
 function editProduct(id) {
 editId = id;
 document.getElementById("saveBtn").innerText = "Update Product";
-    fetch("http://localhost:5000/api/products")
+    fetch("https://shoppingwebsite-crh7.onrender.com/api/products")
     .then(res => res.json())
     .then(products => {
 
