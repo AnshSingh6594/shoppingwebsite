@@ -16,7 +16,7 @@ const uploadRes = await fetch("https://shoppingwebsite-crh7.onrender.com/upload"
 });
 
 const uploadData = await uploadRes.json();
-const image = "images/"+ uploadData.image;
+const image = "https://shoppingwebsite-crh7.onrender.com/images/" +uploadData.image;
 
     const product = {
         name,
