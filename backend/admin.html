@@ -97,5 +97,25 @@ button:hover{
     <tbody id="ordersTable"></tbody>
 </table>
 <script src="admin.js"></script>
+<form onsubmit="login(event)">
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button type="submit">Login</button>
+</form>
+
+<script>
+function login(e){
+    e.preventDefault();
+
+    if(
+        document.getElementById("username").value==="AnshSingh" &&
+        document.getElementById("password").value==="Ansh@6594"
+    ){
+        window.location.href="admin-panel.html";
+    }else{
+        alert("Wrong Username or Password");
+    }
+}
+</script>
 </body>
 </html>

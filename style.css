@@ -852,3 +852,12 @@ button:hover {
     font-size: 14px;
     flex: 1;
 }
+.admin-link{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.admin-link:hover{
+    color: yellow;
+}
