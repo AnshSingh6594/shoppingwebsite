@@ -229,7 +229,7 @@ app.post("/api/login", (req, res) => {
 });
 const PORT = 5000;
 app.use(express.static(__dirname));
-app.get("admin",(req, res)=>{res.sendFile(path.join(__dirname,"admin.html"));});
+app.get("/admin",(req, res)=>{res.sendFile(path.join(__dirname,"admin.html"));});
 app.post("/api/orders", (req, res) => {
 
     const filePath = "./orders.json";
