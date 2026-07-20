@@ -23,7 +23,7 @@ app.get("/",(req, res)=>{res.sendFile(path.join(__dirname,"..","index.html"));})
 app.use("/images", express.static(path.join(__dirname, "images")));
 // Products API
 app.get("/api/products", (req, res) => {
-    const filePath = path.join(__dirname, "products.json");
+    const filePath = path.join(__dirname, "product.json");
 
     fs.readFile(filePath, "utf8", (err, data) => {
         if (err) {
@@ -37,7 +37,7 @@ app.post("/api/products", (req, res) => {
 
     const newProduct = req.body;
 
-    const filePath = path.join(__dirname, "products.json");
+    const filePath = path.join(__dirname, "product.json");
 
     fs.readFile(filePath, "utf8", (err, data) => {
 
