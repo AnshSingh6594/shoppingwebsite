@@ -53,7 +53,7 @@ loadProducts();
 }
 async function loadProducts() {
 
-    const response = await fetch("http://localhost:5000/api/products");
+    const response = await fetch("/api/products");
     const products = await response.json();
 
     const tbody = document.querySelector("#productTable tbody");
@@ -65,7 +65,7 @@ async function loadProducts() {
 tbody.innerHTML += `
 <tr>
     <td>${product.id}</td>
-    <td><img src="http://localhost:5000/${product.image}" width="60"></td>
+    <td><img src="${product.image}" width="60"></td>
     <td>${product.name}</td>
     <td>₹${product.price}</td>
    <td>
