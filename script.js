@@ -100,7 +100,7 @@ function showSlides(){
     setTimeout(showSlides,3000);
 
 }
-fetch("product.json")
+fetch("https://shoppingwebsite-crh7.onrender.com/api/products")
 .then(response => response.json())
 .then(products => {
 
