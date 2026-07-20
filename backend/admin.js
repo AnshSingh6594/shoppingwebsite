@@ -53,7 +53,7 @@ loadProducts();
 }
 async function loadProducts() {
 
-    const response = await fetch("/api/products");
+    const response = await fetch("https://shoppingwebsite-crh7.onrender.com/api/products");
     const products = await response.json();
 
     const tbody = document.querySelector("#productTable tbody");
@@ -113,7 +113,7 @@ console.log(product);
 
 }
 async function loadOrders() {
-    const response = await fetch("/api/orders");
+    const response = await fetch("https://shoppingwebsite-crh7.onrender.com/api/orders");
     const orders = await response.json();
 
     const ordersList = document.getElementById("ordersList");
@@ -145,7 +145,7 @@ ${order.items.map(item => `
 }
 loadOrders();
 async function updateStatus(id, status) {
-    await fetch("/api/orders/status", {
+    await fetch("https://shoppingwebsite-crh7.onrender.com/api/orders/status", {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
